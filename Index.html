@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inside Australia's Food Basket</title>
+
+    <link rel="stylesheet" href="Style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Inside Australia's Food Basket</h1>
+        <p>Exploring nutrition, food consumption and supermarket products across Australia</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Australia's Nutritional Landscape</h2>
+            <p>How does nutritional intake differ across Australian states and territories?</p>
+
+            <div id="map1"></div>
+        </section>
+
+        <section>
+            <h2>A Closer Look at Victoria</h2>
+
+            <p>
+                What does the average Victorian's daily nutritional
+                intake look like? Explore the different nutrients
+                consumed across a typical day.
+            </p>
+
+            <div id="chart2"></div>
+
+            <p class="chart-source">
+                Source: Australian Bureau of Statistics,
+                Australian Health Survey, 2011–12.
+            </p>
+        </section>
+
+        <section>
+            <h2>What Foods Are Australians Eating?</h2>
+
+            <p>
+                Food consumption varies across Australia.
+                Explore the proportion of people who consumed
+                different food groups during the ABS survey.
+            </p>
+
+            <div id="chart3"></div>
+
+            <p class="chart-source">
+                Source: Australian Bureau of Statistics,
+                Australian Health Survey, 2011–12.
+                Selected states and food groups.
+            </p>
+        </section>
+
+        <section>
+            <h2>Which Foods Are Most Commonly Consumed?</h2>
+
+            <p>
+                Explore the most commonly consumed food groups in each
+                Australian state and territory. Select a state to see
+                how consumption patterns change.
+            </p>
+
+            <div id="chart4"></div>
+
+            <p class="chart-source">
+                Source: ABS Australian Health Survey, 2011–12,
+                Table 3.1. Persons aged 2 years and over.
+            </p>
+        </section>
+
+
+        <section>
+            <h2>How Does Victoria Compare?</h2>
+
+            <p>
+                Victoria's food consumption patterns are not identical
+                to those elsewhere in Australia. This chart compares
+                Victoria with the unweighted average of all eight
+                states and territories.
+            </p>
+
+            <div id="chart5"></div>
+
+            <p class="chart-source">
+                Source: ABS Australian Health Survey, 2011–12,
+                Table 3.1. Differences in percentage points.
+            </p>
+        </section>
+
+
+    </main>
+
+    
+
+    <script src="Js/map1"></script>
+    <script src="Js/chart2"></script>
+    <script src="Js/chart3"></script>
+    <script src="Js/chart4"></script>
+    <script src="Js/chart5"></script>
+</body>
+</html>
