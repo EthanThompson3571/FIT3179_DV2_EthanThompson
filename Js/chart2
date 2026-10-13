@@ -1,0 +1,119 @@
+
+const chart2 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+  "title": {
+    "text": "Victoria's Daily Nutritional Intake",
+    "subtitle": "Average intake per person, 2011–12",
+    "fontSize": 18,
+    "subtitleFontSize": 12
+  },
+
+  "width": 550,
+  "height": 550,
+
+  "data": {
+    "url": "Datasets V2/abs_map_nutrients_2011.csv"
+  },
+
+  "transform": [
+    {
+      "filter": "datum.state == 'VIC'"
+    },
+    {
+      "fold": [
+        "Carbohydrate",
+        "Total sugars",
+        "Protein",
+        "Total Fat",
+        "Saturated fat",
+        "Dietary Fibre"
+      ],
+      "as": ["Nutrient", "Intake"]
+    },
+    {
+      "calculate": "toNumber(datum.Intake)",
+      "as": "Amount"
+    },
+    {
+      "calculate": "0",
+      "as": "Start"
+    }
+  ],
+
+  "mark": {
+    "type": "arc",
+    "innerRadius": 75,
+    "stroke": "white",
+    "strokeWidth": 2
+  },
+
+  "encoding": {
+    "theta": {
+      "field": "Amount",
+      "type": "quantitative",
+      "stack": true
+    },
+
+    "radius": {
+      "field": "Amount",
+      "type": "quantitative",
+      "scale": {
+        "type": "sqrt",
+        "rangeMin": 90,
+        "rangeMax": 250
+      }
+    },
+
+    "color": {
+      "field": "Nutrient",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Carbohydrate",
+          "Total sugars",
+          "Protein",
+          "Total Fat",
+          "Saturated fat",
+          "Dietary Fibre"
+        ],
+        "range": [
+          "#275d48",
+          "#e6a34a",
+          "#77a88b",
+          "#dc755d",
+          "#b9a4cc",
+          "#79a6bb"
+        ]
+      },
+      "legend": {
+        "title": "Nutrient",
+        "orient": "right"
+      }
+    },
+
+    "tooltip": [
+      {
+        "field": "Nutrient",
+        "title": "Nutrient"
+      },
+      {
+        "field": "Amount",
+        "title": "Daily intake (g)",
+        "format": ".1f"
+      }
+    ]
+  },
+
+  "view": {
+    "stroke": null
+  },
+
+  "config": {
+    "font": "Arial"
+  }
+};
+
+vegaEmbed("#chart2", chart2, {
+  actions: false
+}).catch(console.error);
